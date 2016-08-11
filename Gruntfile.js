@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     // the site section to publish to
     site_dir: "news",
 
-    //the site section to publish to
+    //the endpoint to publish to
     site_path: "2016-08-16-tx-school-data",
 
     // name of your notifier slack bot
@@ -129,10 +129,10 @@ module.exports = function(grunt) {
 
   });
 
-  // register a custom task to hit slack
+  // Register a custom task to hit slack
   grunt.registerTask('slack', function(where_dis_go) {
 
-    // first, check to see if there's a .slack file
+    //check to see if there's a .slack file
     // (this file has the webhook endpoint)
     if (grunt.file.isFile('.slack')) {
 

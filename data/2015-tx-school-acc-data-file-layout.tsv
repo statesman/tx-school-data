@@ -1,0 +1,65 @@
+NAME	TYPE	LENGTH	LABEL
+CAMPUS	Character	9	Campus Number
+CAMPNAME	Character	34	Campus Name
+CNTYNAME	Character	34	County Name
+COUNTY	Character	3	County Number
+DISTNAME	Character	34	District Name
+DISTRICT	Character	6	District Number
+PAIRNAME	Character	34	Pairing - Campus/District Pair Name
+REGNNAME	Character	34	Region Name
+REGION	Character	2	Region Number
+C_RATING	Character	1	Campus 2015 Rating (M=Met Standard, A=Met Alternative Standard, I=Improvement Required, X/Z=Not Rated)
+CAD_MATH	Character	1	2015 Campus Math Academic Achievement Distinction
+CAD_POST	Character	1	2015 Campus Postsecondary Readiness Distinction
+CAD_READ	Character	1	2015 Campus Reading/ELA Academic Achievement Distinction
+CAD_SCIE	Character	1	2015 Campus Science Academic Achievement Distinction
+CAD_SOCI	Character	1	2015 Campus Social Studies Academic Achievement Distinction
+CAD_GAP	Character	1	Campus 2015: Top 25% Closing Performance Gaps Distinction (1=Yes, 0=No)
+CAD_PROGRESS	Character	1	Campus 2015: Top 25% Student Progress Distinction (1=Yes, 0=No)
+GRDSPAN	Character	7	Grade Span (Total Enrollment)
+GRDHIGH	Character	2	Highest Grade Offered (Total Enrollment)
+GRDLOW	Character	2	Lowest Grade Offered (Total Enrollment)
+PAIRCAMP	Character	9	Pairing - Campus/District Pair Number
+GRDTYPE	Character	1	School Type: E-Elementary, M-Middle, S-Senior, B-Both
+CFLAEATYPE	Character	20	Campus 2015 Flag - AEC of Choice and/or Residential Treatment Facility under AEA Procedures
+CFLAEC	Character	1	Campus 2015 Flag - AEC of Choice under AEA Procedures (Y/N)
+CFLPAIRD	Character	1	Campus 2015 Flag - Campus Paired with Their District (Y/N)
+CFLCHART	Character	1	Campus 2015 Flag - Charter School (Y/N)
+CFLDAEP	Character	1	Campus 2015 Flag - DAEP (Y/N)
+CFLEEK	Character	1	Campus 2015 Flag - High Grade of PK/K (Y/N)
+CFLJJ	Character	1	Campus 2015 Flag - JJAEP (Y/N)
+CFLNEWCAMP	Character	1	Campus 2015 Flag - New School (Compared to Last Year Fall Enrollment) (Y/N)
+CFLPAIR	Character	1	Campus 2015 Flag - Paired Campus (Y/N/A)
+CFLPAIRO	Character	1	Campus 2015 Flag - Pairing Campus (Y/N)
+CFLALTED	Character	1	Campus 2015 Flag - Rated under AEA Procedures (Y/N)
+CFLRTF	Character	1	Campus 2015 Flag - Residential Treatment Facility Under AEA and AskTED (Y/N)
+CI1_CUT	Numeric	8	Campus 2015 Index 1: Cut Point
+CI1_MET	Character	1	Campus 2015 Index 1: Met Index (Y=Yes, N=No, P=Paired, X/Z=Not Rated)
+CI1_MAXPTS	Numeric	8	Campus 2015 Index 1: Total Denominator
+CI1_TOTPTS	Numeric	8	Campus 2015 Index 1: Total Numerator
+CI1	Numeric	8	Campus 2015 Index 1: Total Points
+CI2_CUT	Numeric	8	Campus 2015 Index 2: Cut Point
+CI2	Numeric	8	Campus 2015 Index 2: Index Score
+CI2_MAXPTS	Numeric	8	Campus 2015 Index 2: Maximum Points
+CI2_MET	Character	1	Campus 2015 Index 2: Met Index (Y=Yes, N=No, P=Paired, X/Z=Not Rated)
+CI2_TOTPTS	Numeric	8	Campus 2015 Index 2: Total Points
+CI3_CUT	Numeric	8	Campus 2015 Index 3: Cut Point
+CI3_MAXPTS	Numeric	8	Campus 2015 Index 3: Maximum Points
+CI3_MET	Character	1	Campus 2015 Index 3: Met Index (Y=Yes, N=No, P=Paired, X/Z=Not Rated)
+CI3	Numeric	8	Campus 2015 Index 3: Score
+CI3_TOTPTS	Numeric	8	Campus 2015 Index 3: Total Points
+CI4_CUT	Numeric	8	Campus 2015 Index 4: Cut Point
+CI4	Numeric	8	Campus 2015 Index 4: Final Index Score
+CI4_MET	Character	1	Campus 2015 Index 4: Met Index (Y=Yes, N=No, P=Paired, X/Z=Not Rated)
+CI4_GRD_WGT	Numeric	8	Campus 2015 Index 4: Graduation weighted value
+CI4_PSG_WGT	Numeric	8	Campus 2015 Index 4: Postsecondary Readiness weighted value
+CI4_RHS_WGT	Numeric	8	Campus 2015 Index 4: RHSP/DAP weighted value
+CI4_STR_WGT	Numeric	8	Campus 2015 Index 4: STAAR weighted value
+CPETECOC	Numeric	8	# Econ Disadv
+CPETLEPC	Numeric	8	# LEP Students
+CPEMALLC	Numeric	8	# Mobile Students (Campus Only)
+CPETECOP	Numeric	8	% Econ Disadv
+CPETLEPP	Numeric	8	% LEP Students
+CPEMALLT	Numeric	8	FY14 Enrollment (for Mobility Denominator)
+CPEMALLP	Numeric	8	Mobility Rate (Campus Only)
+CPETALLC	Numeric	8	Total Number of Students
