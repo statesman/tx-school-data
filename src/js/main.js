@@ -1,9 +1,13 @@
 (function($, _) {
   "use strict";
 
-  // path to data file
-  var SCHOOL_DATA = '../data/films.json';
+  /* top-level vars */
 
+  // path to data file
+  var SCHOOL_DATA = '../data/schools.json';
+
+  // latest year (used to grab summary demo stats)
+  var ACTIVE_YEAR = "2016";
 
   // cache DOM refs
   var $RESULTS = $(".results");
@@ -28,10 +32,12 @@
         // regex used to determine if a string contains the substring `q`
         substringRegex = new RegExp(q, 'i');
 
-        // iterate over the array of objects and for any obj.value that
-        // contains the substring `q`, add it to the `matches` array
+        // iterate over the array of objects and add matches --
+        // "obj.name - obj.district" -- to the `matches` array
         _.each(arr_obj, function(d) {
+
           var str = d.name + " - " + d.district;
+
           if (substringRegex.test(str)) {
             matches.push({
               "name": d.name,

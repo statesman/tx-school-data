@@ -11,7 +11,7 @@
     "thumbnail" => "http://projects.statesman.com/site_path/assets/share.jpg",
     "shortcut_icon" => "http://media.cmgdigital.com/shared/media/2015-08-28-16-58-55/web/site/www_mystatesman_com/images/favicon.ico",
     "apple_touch_icon" => "http://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_fa2d2d6e73614535b997734c7e7d2287.png",
-    "url" => "http://projects.statesman.com/news/single-page-project/",
+    "url" => "http://projects.statesman.com/news/2016-08-16-tx-school-data/",
     "twitter" => "aasinteractive",
     "authors" => array(
         array("name" => "Cody Winchester", "twitter" => "cody_winchester"),
@@ -72,8 +72,6 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="./">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
         <li class="visible-xs small-social"><a target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-facebook-square"></i></a><a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode($meta['url']); ?>&via=<?php print urlencode($meta['twitter']); ?>&text=<?php print urlencode($meta['title']); ?>"><i class="fa fa-twitter"></i></a><a target="_blank" href="https://plus.google.com/share?url=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-google-plus"></i></a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right social hidden-xs">
@@ -92,7 +90,8 @@
       <p class="author">Interactive by <?php $len = count($meta['authors']) - 1; foreach($meta['authors'] as $i => $row) { print "<a href='http://twitter.com/" . $row['twitter'] . "' target='_blank'>" . $row['name'] . "</a>"; if ($i !== $len) print " and "; }?>
       <br>
       Published <?php print $meta['publish_date']; ?></p>
-      <p>Lucas ipsum dolor sit amet boba calrissian amidala sith dooku solo moff organa obi-wan windu. Gamorrean binks wedge darth. Mon darth mon kit ponda solo. Moff watto ackbar mothma moff anakin. Lando skywalker lars fett calrissian lars organa. Organa kenobi wedge darth jawa skywalker anakin. Twi'lek kit darth calamari lando kamino droid. Darth jawa fett grievous maul. Palpatine obi-wan leia tusken raider dagobah. Twi'lek qui-gon boba antilles yoda thrawn. Wampa luuke wampa skywalker. Moff ponda ackbar dagobah kit lobot jinn solo.</p>
+      <p>Lucas ipsum dolor sit amet boba calrissian amidala sith dooku solo moff organa obi-wan windu. About XXXX percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency.</p>
+
       <?php if ($meta['related_story'])
         print "<p class='bold'>Read more: <a href='" . $meta['related_story']['url'] . "' target='_blank'>" . $meta['related_story']['headline'] . " &raquo;</a></p>"
       ?>
@@ -103,8 +102,7 @@
         <div class="col-xs-12 interactive">
             <h1 class="interactive-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
             <div class="interactive-ready">
-                <h2>Find ratings for your school</h2>
-                <input type="text" class="form-control input-lg typeahead" placeholder="Start typing a school name" />
+                <input type="text" class="form-control input-lg typeahead" placeholder="Find your school's rating" />
                 <h1 class="results-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
                 <div class="results"></div>
             </div>
@@ -115,8 +113,67 @@
 
   <script type="text/html" class="results-template">
       <div class="search-result">
-          <h1><%= name  %></h1>
-          <p><%= id %></p>
+          <h2><%= name  %></h2>
+          <h3 class="subhed"><small><%= district %></small></h3>
+          <div class="year-labels">
+              <div class="muted-label text-success">
+                  <p class="hed">2016&ensp;<i class="fa fa-check-circle"></i></p>
+                  <p class="txt">Met standard</p>
+              </div>
+              <div class="muted-label text-danger">
+                  <p class="hed">2015&ensp;<i class="fa fa-times-circle"></i></p>
+                  <p class="txt">Improvement required</p>
+              </div>
+              <div class="muted-label text-info">
+                  <p class="hed">2014&ensp;<i class="fa fa-minus-circle"></i></p>
+                  <p class="txt">Met alternative standard</p>
+              </div>
+              <div class="muted-label text-success">
+                  <p class="hed">2014&ensp;<i class="fa fa-check-circle"></i></p>
+                  <p class="txt">Met standard</p>
+              </div>
+          </div>
+          <div class="section categories"></div>
+          <div class="section distinctions"></div>
+          <div class="section demographics">
+              <h3>About this school</h3>
+              <table class="table table-condensed">
+                  <thead>
+                      <tr>
+                          <th>Year</th>
+                          <th class="text-right">Students</th>
+                          <th class="text-right">Percent disadvantaged</th>
+                          <th class="text-right">Percent English-language learners</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td class="bold">2016</td>
+                          <td class="text-right">8,888</td>
+                          <td class="text-right">24.4%</td>
+                          <td class="text-right">12.4%</td>
+                      </tr>
+                      <tr>
+                          <td class="bold">2015</td>
+                          <td class="text-right">8,888</td>
+                          <td class="text-right">24.4%</td>
+                          <td class="text-right">12.4%</td>
+                      </tr>
+                      <tr>
+                          <td class="bold">2014</td>
+                          <td class="text-right">8,888</td>
+                          <td class="text-right">24.4%</td>
+                          <td class="text-right">12.4%</td>
+                      </tr>
+                      <tr>
+                          <td class="bold">2013</td>
+                          <td class="text-right">8,888</td>
+                          <td class="text-right">24.4%</td>
+                          <td class="text-right">12.4%</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
       </div>
   </script>
 
