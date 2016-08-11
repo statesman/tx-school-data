@@ -63,6 +63,8 @@ module.exports = function(grunt) {
         files: {
           'public/dist/scripts.js': [
             'node_modules/jquery/dist/jquery.js',
+            'node_modules/underscore/underscore.js',
+            'node_modules/typeahead.js/dist/typeahead.jquery.js',
             'node_modules/bootstrap/js/button.js',
             'node_modules/bootstrap/js/collapse.js',
             'node_modules/bootstrap/js/dropdown.js',

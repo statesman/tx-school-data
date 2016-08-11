@@ -6,18 +6,17 @@
   <?php
   // update these fields
   $meta = array(
-    "title" => "Single page project | Statesman.com",
-    "description" => "Description for single-page-project.",
+    "title" => "Texas school accountability ratings | Statesman.com",
+    "description" => "How did your school do on the 2016 Texas accountability ratings? Find out here.",
     "thumbnail" => "http://projects.statesman.com/site_path/assets/share.jpg",
     "shortcut_icon" => "http://media.cmgdigital.com/shared/media/2015-08-28-16-58-55/web/site/www_mystatesman_com/images/favicon.ico",
     "apple_touch_icon" => "http://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_fa2d2d6e73614535b997734c7e7d2287.png",
     "url" => "http://projects.statesman.com/news/single-page-project/",
     "twitter" => "aasinteractive",
     "authors" => array(
-        array("name" => "John Doe", "twitter" => "john_doe"),
-        array("name" => "Don Joe", "twitter" => "don_joe")
+        array("name" => "Cody Winchester", "twitter" => "cody_winchester"),
     ),
-    "publish_date" => "June 23, 2016",
+    "publish_date" => "Aug. 16, 2016",
     "related_story" => array(
         "url" => "http://www.mystatesman.com/news/news/local/jobs-schools-bring-growing-asian-population-north/nrk9D/",
         "headline" => "Jobs, schools bring growing Asian population to Austin area"
@@ -88,9 +87,9 @@
   <article class="container">
 
     <div class="row">
-      <div class="col-lg-12 interative-header">
-      <h1 id="pagetitle">Title</h1>
-      <p class="author">By <?php $len = count($meta['authors']) - 1; foreach($meta['authors'] as $i => $row) { print "<a href='http://twitter.com/" . $row['twitter'] . "'>" . $row['name'] . "</a>"; if ($i !== $len) print " and "; }?>
+      <div class="col-xs-12">
+      <h1 id="pagetitle">Texas school accountability scores 2016</h1>
+      <p class="author">Interactive by <?php $len = count($meta['authors']) - 1; foreach($meta['authors'] as $i => $row) { print "<a href='http://twitter.com/" . $row['twitter'] . "' target='_blank'>" . $row['name'] . "</a>"; if ($i !== $len) print " and "; }?>
       <br>
       Published <?php print $meta['publish_date']; ?></p>
       <p>Lucas ipsum dolor sit amet boba calrissian amidala sith dooku solo moff organa obi-wan windu. Gamorrean binks wedge darth. Mon darth mon kit ponda solo. Moff watto ackbar mothma moff anakin. Lando skywalker lars fett calrissian lars organa. Organa kenobi wedge darth jawa skywalker anakin. Twi'lek kit darth calamari lando kamino droid. Darth jawa fett grievous maul. Palpatine obi-wan leia tusken raider dagobah. Twi'lek qui-gon boba antilles yoda thrawn. Wampa luuke wampa skywalker. Moff ponda ackbar dagobah kit lobot jinn solo.</p>
@@ -100,8 +99,26 @@
       </div>
     </div>
 
+    <div class="row">
+        <div class="col-xs-12 interactive">
+            <h1 class="interactive-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
+            <div class="interactive-ready">
+                <h2>Find ratings for your school</h2>
+                <input type="text" class="form-control input-lg typeahead" placeholder="Start typing a school name" />
+                <h1 class="results-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
+                <div class="results"></div>
+            </div>
+        </div>
+    </div>
 
   </article>
+
+  <script type="text/html" class="results-template">
+      <div class="search-result">
+          <h1><%= name  %></h1>
+          <p><%= id %></p>
+      </div>
+  </script>
 
     <!-- bottom matter -->
     <?php include "includes/banner-ad.inc";?>
