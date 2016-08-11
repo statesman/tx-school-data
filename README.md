@@ -1,6 +1,6 @@
 # Texas school accountability data
 This repo includes:
-* Texas school accountability rating data for 2016.
+* Texas school accountability rating data for 2013-2016.
 * A [Jupyter notebook](2016-texas-school-accountability-data.ipynb) with scripts to transform and analyze this data.
 * A web page based on our [single-page project template](https://github.com/statesman/single-page-project) to present the data.
 
