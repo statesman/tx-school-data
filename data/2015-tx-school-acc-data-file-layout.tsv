@@ -1,4 +1,3 @@
-NAME	TYPE	LENGTH	LABEL
 CAMPUS	Character	9	Campus Number
 CAMPNAME	Character	34	Campus Name
 CNTYNAME	Character	34	County Name
