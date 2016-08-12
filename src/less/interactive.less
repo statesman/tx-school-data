@@ -20,10 +20,10 @@
   margin-top: 60px;
   h2 {
     font-family: @font-family-sans-serif;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
     @media (max-width: @screen-md) {
-      font-size: 24px;
+      font-size: 26px;
     }
   }
   h3.subhed {
@@ -37,10 +37,15 @@
 }
 
 div.section {
-  margin-top: 30px;
+  margin: 30px auto 50px auto;
   h3 {
-    font-weight: bold;
     font-family: @font-family-sans-serif;
+    font-size: 26px;
+    @media (max-width: @screen-md) {
+      font-size: 18px;
+    }
+  }
+  p.leadish {
     font-size: 18px;
   }
 }
@@ -63,4 +68,41 @@ div.muted-label {
   > p.txt {
     margin:0;
   }
+}
+
+.index-chart {
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+.bar-group {
+  margin-bottom: 10px;
+}
+
+.bar-scale {
+  border-bottom: 1px solid #ccc;
+}
+
+.bar-scale-wrapper {
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.bar {
+  height: 16px;
+  padding-left: 15px;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.bar-value {
+  height: 100%;
+  background-color: #eee;
+}
+
+.bar-goal {
+  height: 26px;
+  background-color: transparent;
+  margin-top: -20px;
+  border-right: 2px solid #aaa;
 }
