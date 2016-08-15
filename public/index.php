@@ -135,23 +135,23 @@
           <h3 class="subhed"><small><%= school.dist_name %></small></h3>
 
           <div class="year-labels">
-          <% _.each([2015, 2014, 2013], function(year) {
-            if (school[year].rating === "M") { %>
+          <% _.each(school.ratings, function(ratingYear) {
+            if (ratingYear.rating === "M") { %>
               <div class="muted-label text-success">
-                  <p class="hed"><%= year %>&ensp;<i class="fa fa-check-circle"></i></p>
+                  <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-check-circle"></i></p>
                   <p class="txt">Met standard</p>
               </div>
-            <% } else if (school[year].rating === "I") { %>
+            <% } else if (ratingYear.rating === "I") { %>
               <div class="muted-label text-danger">
-                  <p class="hed"><%= year %>&ensp;<i class="fa fa-times-circle"></i></p>
+                  <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-times-circle"></i></p>
                   <p class="txt">Improvement required</p>
               </div>
-            <% } else if (school[year].rating === "A") { %>
+            <% } else if (ratingYear.rating === "A") { %>
               <div class="muted-label text-info">
-                  <p class="hed"><%= year %>&ensp;<i class="fa fa-minus-circle"></i></p>
+                  <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-minus-circle"></i></p>
                   <p class="txt">Met alternative standard</p>
               </div>
-            <% } else if (school[year].rating === "X" || school[year].rating === "Z") { %>
+            <% } else if (ratingYear.rating === "X" || ratingYear.rating === "Z") { %>
               <div class="muted-label">
                   <p class="hed"><%= year %>&ensp;<i class="fa fa-minus-circle"></i></p>
                   <p class="txt">Not rated</p>
@@ -187,18 +187,18 @@
 
                   <div class="clearfix"></div>
 
-                  <% _.each([2015, 2014, 2013], function(year) { %>
+                  <% _.each(school[i + 1].scores, function(scoreYear) { %>
                   <div class="row bar-group">
                       <div class="col-xs-2 bar-year-label">
-                          <%= year %>
+                          <%= scoreYear.year %>
                       </div>
                       <div class="col-xs-10">
-                          <% var score_var = "i" + (i + 1) + "_score"; if (school[year][score_var] === null) { %>
+                          <% if (scoreYear.score === null) { %>
                           <div class="bar italic" style="margin-top:2px;">No data this year</div>
-                          <% } else { var target_var = "i" + (i + 1) + "_target" %>
+                          <% } else { %>
                           <div class="bar">
-                              <div class="bar-value" style="width: <%= school[year][score_var] %>%;"></div>
-                              <div class="bar-goal" style="width: <%= school[year][target_var] %>%;"></div>
+                              <div class="bar-value" style="width: <%= scoreYear.score %>%;"></div>
+                              <div class="bar-goal" style="width: <%= scoreYear.target %>%;"></div>
                           </div>
                           <% } %>
                       </div>
