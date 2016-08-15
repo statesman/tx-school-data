@@ -151,7 +151,7 @@
                   <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-minus-circle"></i></p>
                   <p class="txt">Met alternative standard</p>
               </div>
-            <% } else if (ratingYear.rating === "X" || ratingYear.rating === "Z") { %>
+            <% } else if (ratingYear.rating === "X" || ratingYear.rating === "Z" || ratingYear.rating === null) { %>
               <div class="muted-label">
                   <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-minus-circle"></i></p>
                   <p class="txt">Not rated</p>
