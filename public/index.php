@@ -170,11 +170,9 @@
           <div class="section categories">
               <div class="legend-row row">
                 <div class="col-sm-6">
-                  <div class="legend-text col-xs-2"><strong>Legend:</strong></div>
-                  <div class="col-xs-10 bar-goal-legend">TEA target score</div>
-                  <div class="legend-text col-xs-2"></div>
-                  <div class="col-xs-5 bar-value-legend"></div>
-                  <div class="col-xs-5">Score given to school</div>
+                  <div class="legend-text col-xs-12"><p><strong>Legend:</strong></p></div>
+                  <div class="col-xs-12 bar-goal-legend">&emsp;TEA target score</div>
+                  <div class="col-xs-4 bar-value-legend"></div><div class="col-xs-8">Score given to school</div>
                 </div>
                 <div class="col-sm-6">
                   <div class="col-xs-12"></div>
