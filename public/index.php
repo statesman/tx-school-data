@@ -90,6 +90,7 @@
       <p class="author">Interactive by <?php $len = count($meta['authors']) - 1; foreach($meta['authors'] as $i => $row) { print "<a href='http://twitter.com/" . $row['twitter'] . "' target='_blank'>" . $row['name'] . "</a>"; if ($i !== $len) print " and "; }?>
       <br>
       Published <?php print $meta['publish_date']; ?></p>
+
       <p>About XX.X percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency. Around Austin, all schools in XXXXXX ISD, YYYYYY ISD and ZZZZZZ ISD met the state’s 2016 goals while some schools in AAAAAA ISD and BBBBBB ISD failed to do so.</p>
 
       <p>In the yearly report the TEA measures state elementary, middle and high schools based on four performance index categories:</p>
