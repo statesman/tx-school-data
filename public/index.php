@@ -136,7 +136,7 @@
           <div class="section categories">
               <h3>Accountability ratings</h3>
 
-              <p class="leadish italic">Student preparedness (Index 1)</p>
+              <p class="leadish italic">Student Achievement (Index 1)</p>
 
               <div class="index-chart">
 
@@ -206,11 +206,11 @@
           </div>
 
 
-              <p class="leadish italic">Index 2</p>
+              <p class="leadish italic">Student Progress (Index 2)</p>
               CHART
-              <p class="leadish italic">Index 3</p>
+              <p class="leadish italic">Closing Performance Gaps (Index 3)</p>
               CHART
-              <p class="leadish italic">Index 4</p>
+              <p class="leadish italic">Postsecondary Readiness (Index 4)</p>
               CHART
           </div>
       </div>
