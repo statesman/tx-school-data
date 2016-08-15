@@ -177,9 +177,15 @@
                   <div class="col-xs-12"></div>
                 </div>
               </div>
+
               <% _.each(["Student Achievement (Index 1)","Student Progress (Index 2)","Closing Performance Gaps (Index 3)","Postsecondary Readiness (Index 4)"],
-                    function(title, i) { %>
-              <p class="leadish italic"><%= title %></p>
+                      function(title, i) { %>
+            <div class="rating-section">
+               <h3><%= title %></h3>
+               <p class="leadish italic"><%= ["Student performance across all subjects.",
+                "Student performance improvement.",
+                "Academic achievement of economically disadvantaged students and the two lowest-performing racial student groups.",
+                "Measure of a school’s ability to prepare its students for the next level of education, or the workforce."][i] %></p>
               <div class="index-chart">
 
                   <div class="row">
@@ -214,7 +220,7 @@
                   <% }); %>
               </div>
               <% }); %>
-
+          </div>
           </div>
       </div>
   </script>
