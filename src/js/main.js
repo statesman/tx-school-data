@@ -4,10 +4,10 @@
   /* top-level vars */
 
   // path to data file
-  var SCHOOL_DATA = '../data/schools.json';
+  var SCHOOL_DATA = '../data/school-rating-data.json';
 
   // latest year (used to grab summary demo stats)
-  var ACTIVE_YEAR = "2016";
+  // var ACTIVE_YEAR = "2016";
 
   // cache DOM refs
   var $RESULTS = $(".results");
@@ -36,13 +36,13 @@
         // "obj.name - obj.district" -- to the `matches` array
         _.each(arr_obj, function(d) {
 
-          var str = d.name + " - " + d.district;
+          var str = d.name + " - " + d.dist_name;
 
           if (substringRegex.test(str)) {
             matches.push({
               "name": d.name,
-              "id": d.id,
-              "district": d.district
+              "id": d,
+              "district": d.dist_name
             });
           }
         });
@@ -62,7 +62,7 @@
         return [
           d.name,
           " - ",
-          d.district].join("");
+          d.dist_name].join("");
       }
     }).bind('typeahead:select', function(ev, suggestion) {
       fetchRecord(suggestion);
@@ -70,7 +70,8 @@
 
     function fetchRecord(q) {
       $RESULTS_WAIT.show();
-      var matchingRecord = _.findWhere(data, {"id": q.id});
+      var matchingRecord = data[q.id];
+      console.log(matchingRecord);
       $RESULTS.html(resultsTemplate(matchingRecord));
       $RESULTS_WAIT.hide();
     }
