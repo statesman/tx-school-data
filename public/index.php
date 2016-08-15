@@ -18,8 +18,8 @@
     ),
     "publish_date" => "Aug. 16, 2016",
     "related_story" => array(
-        "url" => "http://www.mystatesman.com/news/news/local/jobs-schools-bring-growing-asian-population-north/nrk9D/",
-        "headline" => "Jobs, schools bring growing Asian population to Austin area"
+        "url" => "http://www.statesman.com/news/news/local/four-austin-middle-schools-stumble-in-texas-educat/nsGFq/",
+        "headline" => "Four Austin middle schools stumble in Texas education ratings"
     )
   );
 ?>
