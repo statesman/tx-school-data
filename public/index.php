@@ -153,56 +153,23 @@
 
               <div class="clearfix"></div>
 
-              <!-- didn't meet goal this year -->
+              <% _.each([2015, 2014, 2013], function(year) {%>
               <div class="row bar-group">
                   <div class="col-xs-1 bar-year-label">
-                      2016
+                      <%= year %>
                   </div>
-                  <div class="col-xs-11 bar-wrapper">
+                  <div class="col-xs-11">
+                      <% if (school[year].i1_score === null) { %>
+                      <div class="bar italic" style="margin-top:2px;">No data this year</div>
+                      <% } else { %>
                       <div class="bar">
-                          <div class="bar-value" style="width: 47%;"></div>
-                          <div class="bar-goal" style="width: 50%;"></div>
+                          <div class="bar-value" style="width: <%= school[year].i1_score %>%;"></div>
+                          <div class="bar-goal" style="width: <%= school[year].i1_target %>%;"></div>
                       </div>
-                  </div>
-                  </div>
-
-              <!-- met goal this year -->
-              <div class="row bar-group">
-                  <div class="col-xs-1">
-                      2015
-                  </div>
-                  <div class="col-xs-11">
-                  <div class="bar">
-                      <div class="bar-value" style="width: 56%;"></div>
-                      <div class="bar-goal" style="width: 43%;"></div>
-                  </div>
+                      <% } %>
                   </div>
               </div>
-
-              <!-- no data this year -->
-              <div class="row bar-group">
-                  <div class="col-xs-1">
-                      2014
-                  </div>
-                  <div class="col-xs-11">
-                  <div class="bar italic" style="margin-top:2px;">
-                      No data this year
-                  </div>
-                  </div>
-                  </div>
-
-              <!-- met goal this year -->
-              <div class="row bar-group">
-                  <div class="col-xs-1">
-                      2013
-                  </div>
-                  <div class="col-xs-11">
-                  <div class="bar">
-                      <div class="bar-value" style="width: 56%;"></div>
-                      <div class="bar-goal" style="width: 43%;"></div>
-                  </div>
-                  </div>
-              </div>
+              <% }); %>
           </div>
 
 
