@@ -113,8 +113,8 @@
 
   <script type="text/html" class="results-template">
       <div class="search-result">
-          <h2><%= name  %></h2>
-          <h3 class="subhed"><small><%= dist_name %></small></h3>
+          <h2><%= school.name  %></h2>
+          <h3 class="subhed"><small><%= school.dist_name %></small></h3>
           <div class="year-labels">
               <div class="muted-label text-success">
                   <p class="hed">2016&ensp;<i class="fa fa-check-circle"></i></p>
