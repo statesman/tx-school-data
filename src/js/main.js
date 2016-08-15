@@ -3,14 +3,8 @@
 
   /* top-level vars */
 
-  // path to data file
-  var SCHOOL_DATA = 'assets/data/school-rating-data.json';
-
-  // template var
-  _.templateSettings.variable = "school";
-
-  // latest year (used to grab summary demo stats)
-  // var ACTIVE_YEAR = "2016";
+   var data_path = 'assets/data/';
+   var search_index = 'assets/data/search_index.json';
 
   // cache DOM refs
   var $RESULTS = $(".results");
@@ -19,14 +13,17 @@
   var $INTERACTIVE_WAIT = $(".interactive-wait");
   var $INTERACTIVE_READY = $(".interactive-ready");
 
-  // set up results template
-  var resultsTemplate = _.template($(".results-template").html());
+   // template var
+   _.templateSettings.variable = "school";
 
-  // load school index for typeahead
-  $.getJSON(SCHOOL_DATA, function(data) {
+   var resultsTemplate = _.template($(".results-template").html());
 
-    var substringMatcher = function(arr_obj) {
-      return function findMatches(q, cb) {
+   // load school index for typeahead
+  $.getJSON(search_index, function(data) {
+
+     var substringMatcher = function(arr_obj) {
+       return function findMatches(q, cb) {
+
         var matches, substringRegex;
 
         // an array that will be populated with substring matches
@@ -39,13 +36,13 @@
         // "obj.name - obj.district" -- to the `matches` array
         _.each(arr_obj, function(d, i) {
 
-          var str = d.name + " - " + d.dist_name;
+          var str = d.name + " - " + d.district;
 
           if (substringRegex.test(str)) {
             matches.push({
               "name": d.name,
-              "id": i,
-              "district": d.dist_name
+              "id": d.id,
+              "district": d.district
             });
           }
         });
@@ -72,11 +69,12 @@
     });
 
     function fetchRecord(q) {
-      $RESULTS_WAIT.show();
-      var matchingRecord = data[q.id];
-      $RESULTS.html(resultsTemplate(matchingRecord));
-      $RESULTS_WAIT.hide();
-    }
+      $RESULTS_WAIT.show();
+      $.getJSON(data_path + q.id + '.json', function(matchingRecord) {
+        $RESULTS.html(resultsTemplate(matchingRecord));
+        $RESULTS_WAIT.hide();
+      });
+     }
 
     $INTERACTIVE_WAIT.hide();
     $INTERACTIVE_READY.show();
