@@ -152,7 +152,7 @@
                   <p class="txt">Met alternative standard</p>
               </div>
             <% } else if (school[year].rating === "X" || school[year].rating === "Z") { %>
-              <div class="muted-label text-info">
+              <div class="muted-label">
                   <p class="hed"><%= year %>&ensp;<i class="fa fa-minus-circle"></i></p>
                   <p class="txt">Not rated</p>
               </div>
