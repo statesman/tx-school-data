@@ -163,8 +163,11 @@
           <div class="section categories">
               <h3>Accountability ratings</h3>
               <div class="legend-row row">
-                <div class="legend-text col-xs-2">TEA target score</div><div class="col-xs-10 bar-goal-legend"></div>
-                <div class="legend-text col-xs-2">Score given to school</div><div class="col-xs-10 bar-value-legend"></div>
+                <div class="legend-text col-xs-1"><strong>Legend:</strong></div>
+                <div class="col-xs-11 bar-goal-legend">TEA target score</div>
+                <div class="legend-text col-xs-1"></div>
+                <div class="col-xs-3 bar-value-legend"></div>
+                <div class="col-xs-8">Score given to school</div>
               </div>
               <% _.each(["Student Achievement (Index 1)","Student Progress (Index 2)","Closing Performance Gaps (Index 3)","Postsecondary Readiness (Index 4)"],
                     function(title, i) { %>
