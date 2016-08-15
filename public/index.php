@@ -90,7 +90,18 @@
       <p class="author">Interactive by <?php $len = count($meta['authors']) - 1; foreach($meta['authors'] as $i => $row) { print "<a href='http://twitter.com/" . $row['twitter'] . "' target='_blank'>" . $row['name'] . "</a>"; if ($i !== $len) print " and "; }?>
       <br>
       Published <?php print $meta['publish_date']; ?></p>
-      <p>Lucas ipsum dolor sit amet boba calrissian amidala sith dooku solo moff organa obi-wan windu. About XXXX percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency.</p>
+      <p>About XX.X percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency. Around Austin, all schools in XXXXXX ISD, YYYYYY ISD and ZZZZZZ ISD met the state’s 2016 goals while some schools in AAAAAA ISD and BBBBBB ISD failed to do so.</p>
+
+      <p>In the yearly report the TEA measures state elementary, middle and high schools based on four performance index categories:</p>
+
+      <ol>
+        <li><strong>Student achievement:</strong> Student performance across all subjects</li>
+        <li><strong>Student progress:</strong> Student performance improvement</li>
+        <li><strong>Closing performance gaps:</strong> Academic achievement of economically disadvantaged students and the two lowest-performing racial student groups</li>
+        <li><strong>Postsecondary readiness:</strong> Measure of a school’s ability to prepare its students for the next level of education, or the workforce.</li>
+      </ol>
+
+      <p>In addition to the performance index report, schools are also eligible for distinctions should they perform particularly well in a specific area.</p>
 
       <?php if ($meta['related_story'])
         print "<p class='bold'>Read more: <a href='" . $meta['related_story']['url'] . "' target='_blank'>" . $meta['related_story']['headline'] . " &raquo;</a></p>"
