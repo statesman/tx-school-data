@@ -152,7 +152,7 @@
                   <p class="txt">Met alternative standard</p>
               </div>
             <% } else if (school[year].rating === "X" || school[year].rating === "Z") { %>
-              <div class="muted-label text-info">
+              <div class="muted-label">
                   <p class="hed"><%= year %>&ensp;<i class="fa fa-minus-circle"></i></p>
                   <p class="txt">Not rated</p>
               </div>
@@ -172,7 +172,7 @@
               <div class="index-chart">
 
                   <div class="row">
-                      <div class="col-xs-11 col-xs-offset-1">
+                      <div class="col-xs-10 col-xs-offset-2">
                           <div class="bar-scale-wrapper">
                               <span class="small muted pull-left">0%</span>
                               <span class="small muted pull-right">100%</span>
@@ -186,10 +186,10 @@
 
                   <% _.each([2015, 2014, 2013], function(year) { %>
                   <div class="row bar-group">
-                      <div class="col-xs-1 bar-year-label">
+                      <div class="col-xs-2 bar-year-label">
                           <%= year %>
                       </div>
-                      <div class="col-xs-11">
+                      <div class="col-xs-10">
                           <% var score_var = "i" + (i + 1) + "_score"; if (school[year][score_var] === null) { %>
                           <div class="bar italic" style="margin-top:2px;">No data this year</div>
                           <% } else { var target_var = "i" + (i + 1) + "_target" %>
