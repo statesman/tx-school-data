@@ -4,7 +4,7 @@
   /* top-level vars */
 
   // path to data file
-  var SCHOOL_DATA = '../data/school-rating-data.json';
+  var SCHOOL_DATA = 'assets/data/school-rating-data.json';
 
   // template var
   _.templateSettings.variable = "school";

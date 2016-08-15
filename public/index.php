@@ -18,8 +18,8 @@
     ),
     "publish_date" => "Aug. 16, 2016",
     "related_story" => array(
-        "url" => "http://www.mystatesman.com/news/news/local/jobs-schools-bring-growing-asian-population-north/nrk9D/",
-        "headline" => "Jobs, schools bring growing Asian population to Austin area"
+        "url" => "http://www.statesman.com/news/news/local/four-austin-middle-schools-stumble-in-texas-educat/nsGFq/",
+        "headline" => "Four Austin middle schools stumble in Texas education ratings"
     )
   );
 ?>
@@ -72,7 +72,7 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="visible-xs small-social"><a target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-facebook-square"></i></a><a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode($meta['url']); ?>&via=<?php print urlencode($meta['twitter']); ?>&text=<?php print urlencode($meta['title']); ?>"><i class="fa fa-twitter"></i></a><a target="_blank" href="https://plus.google.com/share?url=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-google-plus"></i></a></li>
+        <li class="visible-xs small-social"><a target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-facebook-square"></i></a><a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode($meta['url']); ?>&via=<?php print urlencode($meta['twitter']); ?>&text=<?php print urlencode($meta['title']); ?>"><i class="fa fa-twitter"></i></a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right social hidden-xs">
           <li><a target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode($meta['url']); ?>"><i class="fa fa-facebook-square"></i></a></li>
@@ -91,7 +91,11 @@
       <br>
       Published <?php print $meta['publish_date']; ?></p>
 
-      <p>About XX.X percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency. Around Austin, all schools in XXXXXX ISD, YYYYYY ISD and ZZZZZZ ISD met the state’s 2016 goals while some schools in AAAAAA ISD and BBBBBB ISD failed to do so.</p>
+      <p>Nearly 94 percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency.</p>
+
+      <p>In Central Texas, all campuses in Bastrop, Del Valle, Dripping Springs, Eanes, Elgin, Georgetown, Hutto, Lake Travis, Leander, Pflugerville, Round Rock and San Marcos met standards.</p>
+
+      <p>Hemphill Elementary in the Hays school district and Manor Excel Academy in the Manor district received &ldquo;Improvement Required&rdquo; ratings.</p>
 
       <p>In the yearly report the TEA measures state elementary, middle and high schools based on four performance index categories:</p>
 
@@ -107,6 +111,8 @@
       <?php if ($meta['related_story'])
         print "<p class='bold'>Read more: <a href='" . $meta['related_story']['url'] . "' target='_blank'>" . $meta['related_story']['headline'] . " &raquo;</a></p>"
       ?>
+
+      <p>Type a school name in the search bar below to find its accountability scores from 2013 to 2016.</p>
       </div>
     </div>
 
@@ -114,7 +120,7 @@
         <div class="col-xs-12 interactive">
             <h1 class="interactive-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
             <div class="interactive-ready">
-                <input type="text" class="form-control input-lg typeahead" placeholder="Find your school's rating" />
+                <input type="text" class="form-control input-lg typeahead" placeholder="Find your school's ratings" />
                 <h1 class="results-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
                 <div class="results"></div>
             </div>
@@ -127,103 +133,74 @@
       <div class="search-result">
           <h2><%= school.name  %></h2>
           <h3 class="subhed"><small><%= school.dist_name %></small></h3>
+
           <div class="year-labels">
+          <% _.each([2015, 2014, 2013], function(year) {
+            if (school[year].rating === "M") { %>
               <div class="muted-label text-success">
-                  <p class="hed">2016&ensp;<i class="fa fa-check-circle"></i></p>
+                  <p class="hed"><%= year %>&ensp;<i class="fa fa-check-circle"></i></p>
                   <p class="txt">Met standard</p>
               </div>
+            <% } else if (school[year].rating === "I") { %>
               <div class="muted-label text-danger">
-                  <p class="hed">2015&ensp;<i class="fa fa-times-circle"></i></p>
+                  <p class="hed"><%= year %>&ensp;<i class="fa fa-times-circle"></i></p>
                   <p class="txt">Improvement required</p>
               </div>
+            <% } else if (school[year].rating === "A") { %>
               <div class="muted-label text-info">
-                  <p class="hed">2014&ensp;<i class="fa fa-minus-circle"></i></p>
+                  <p class="hed"><%= year %>&ensp;<i class="fa fa-minus-circle"></i></p>
                   <p class="txt">Met alternative standard</p>
               </div>
-              <div class="muted-label text-success">
-                  <p class="hed">2014&ensp;<i class="fa fa-check-circle"></i></p>
-                  <p class="txt">Met standard</p>
+            <% } else if (school[year].rating === "X" || school[year].rating === "Z") { %>
+              <div class="muted-label text-info">
+                  <p class="hed"><%= year %>&ensp;<i class="fa fa-minus-circle"></i></p>
+                  <p class="txt">Not rated</p>
               </div>
+            <% }
+            });
+          %>
           </div>
           <div class="section categories">
               <h3>Accountability ratings</h3>
 
-              <p class="leadish italic">Student Achievement (Index 1)</p>
-
+              <% _.each(["Student Achievement (Index 1)","Student Progress (Index 2)","Closing Performance Gaps (Index 3)","Postsecondary Readiness (Index 4)"],
+                    function(title, i) { %>
+              <p class="leadish italic"><%= title %></p>
               <div class="index-chart">
 
-              <div class="row">
-                  <div class="col-xs-11 col-xs-offset-1">
-                      <div class="bar-scale-wrapper">
-                          <span class="small muted pull-left">0%</span>
-                          <span class="small muted pull-right">100%</span>
-                          <div class="clearfix"></div>
-                          <div class="bar-scale"></div>
+                  <div class="row">
+                      <div class="col-xs-11 col-xs-offset-1">
+                          <div class="bar-scale-wrapper">
+                              <span class="small muted pull-left">0%</span>
+                              <span class="small muted pull-right">100%</span>
+                              <div class="clearfix"></div>
+                              <div class="bar-scale"></div>
+                          </div>
                       </div>
                   </div>
-              </div>
 
-              <div class="clearfix"></div>
+                  <div class="clearfix"></div>
 
-              <!-- didn't meet goal this year -->
-              <div class="row bar-group">
-                  <div class="col-xs-1 bar-year-label">
-                      2016
-                  </div>
-                  <div class="col-xs-11 bar-wrapper">
-                      <div class="bar">
-                          <div class="bar-value" style="width: 47%;"></div>
-                          <div class="bar-goal" style="width: 50%;"></div>
+                  <% _.each([2015, 2014, 2013], function(year) { %>
+                  <div class="row bar-group">
+                      <div class="col-xs-1 bar-year-label">
+                          <%= year %>
+                      </div>
+                      <div class="col-xs-11">
+                          <% var score_var = "i" + (i + 1) + "_score"; if (school[year][score_var] === null) { %>
+                          <div class="bar italic" style="margin-top:2px;">No data this year</div>
+                          <% } else { var target_var = "i" + (i + 1) + "_target" %>
+                          <div class="bar">
+                              <div class="bar-value" style="width: <%= school[year][score_var] %>%;"></div>
+                              <div class="bar-goal" style="width: <%= school[year][target_var] %>%;"></div>
+                          </div>
+                          <% } %>
                       </div>
                   </div>
-                  </div>
-
-              <!-- met goal this year -->
-              <div class="row bar-group">
-                  <div class="col-xs-1">
-                      2015
-                  </div>
-                  <div class="col-xs-11">
-                  <div class="bar">
-                      <div class="bar-value" style="width: 56%;"></div>
-                      <div class="bar-goal" style="width: 43%;"></div>
-                  </div>
-                  </div>
+                  <% }); %>
               </div>
+              <% }); %>
 
-              <!-- no data this year -->
-              <div class="row bar-group">
-                  <div class="col-xs-1">
-                      2014
-                  </div>
-                  <div class="col-xs-11">
-                  <div class="bar italic" style="margin-top:2px;">
-                      No data this year
-                  </div>
-                  </div>
-                  </div>
-
-              <!-- met goal this year -->
-              <div class="row bar-group">
-                  <div class="col-xs-1">
-                      2013
-                  </div>
-                  <div class="col-xs-11">
-                  <div class="bar">
-                      <div class="bar-value" style="width: 56%;"></div>
-                      <div class="bar-goal" style="width: 43%;"></div>
-                  </div>
-                  </div>
-              </div>
-          </div>
-
-
-              <p class="leadish italic">Student Progress (Index 2)</p>
-              CHART
-              <p class="leadish italic">Closing Performance Gaps (Index 3)</p>
-              CHART
-              <p class="leadish italic">Postsecondary Readiness (Index 4)</p>
-              CHART
           </div>
       </div>
   </script>
