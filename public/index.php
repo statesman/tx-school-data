@@ -15,6 +15,8 @@
     "twitter" => "aasinteractive",
     "authors" => array(
         array("name" => "Cody Winchester", "twitter" => "cody_winchester"),
+        array("name" => "Dan Hill", "twitter" => "danhillreports"),
+        array("name" => "Adam Humphrey", "twitter" => "humphrinator"),
     ),
     "publish_date" => "Aug. 16, 2016",
     "related_story" => array(
@@ -87,7 +89,7 @@
     <div class="row">
       <div class="col-xs-12">
       <h1 id="pagetitle">Texas school accountability scores 2016</h1>
-      <p class="author">Interactive by <?php $len = count($meta['authors']) - 1; foreach($meta['authors'] as $i => $row) { print "<a href='http://twitter.com/" . $row['twitter'] . "' target='_blank'>" . $row['name'] . "</a>"; if ($i !== $len) print " and "; }?>
+      <p class="author">Interactive by <?php $len = count($meta['authors']) - 1; foreach($meta['authors'] as $i => $row) { print "<a href='http://twitter.com/" . $row['twitter'] . "' target='_blank'>" . $row['name'] . "</a>"; if ($i !== $len) { if ($i === $len-1) { print " and "; } else { print ", "; }}; }?>
       <br>
       Published <?php print $meta['publish_date']; ?></p>
 

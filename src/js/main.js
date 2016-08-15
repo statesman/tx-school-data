@@ -73,9 +73,7 @@
 
     function fetchRecord(q) {
       $RESULTS_WAIT.show();
-      console.log(q);
       var matchingRecord = data[q.id];
-      console.log(matchingRecord);
       $RESULTS.html(resultsTemplate(matchingRecord));
       $RESULTS_WAIT.hide();
     }
