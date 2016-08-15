@@ -96,7 +96,7 @@
 
       <p>Nearly 94 percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency.</p>
 
-      <p>In Central Texas, all campuses in Bastrop, Del Valle, Dripping Springs, Eanes, Elgin, Georgetown, Hutto, Lake Travis, Leander, Pflugerville, Round Rock and San Marcos met standards.</p>
+      <p>In Central Texas, all of the schools in Bastrop, Del Valle, Dripping Springs, Eanes, Elgin, Georgetown, Hutto, Lake Travis, Leander, Pflugerville, Round Rock and San Marcos met the standards, which measure student performance in four categories.</p>
 
       <p>Hemphill Elementary in the Hays school district and Manor Excel Academy in the Manor district received &ldquo;Improvement Required&rdquo; ratings.</p>
 
@@ -109,13 +109,14 @@
         <li><strong>Postsecondary readiness:</strong> Measure of a school’s ability to prepare its students for the next level of education, or the workforce.</li>
       </ol>
 
-      <p>In addition to the performance index report, schools are also eligible for distinctions should they perform particularly well in a specific area.</p>
+      <!-- <p>In addition to the performance index report, schools are also eligible for distinctions should they perform particularly well in a specific area.</p>-->
 
       <?php if ($meta['related_story'])
         print "<p class='bold'>Read more: <a href='" . $meta['related_story']['url'] . "' target='_blank'>" . $meta['related_story']['headline'] . " &raquo;</a></p>"
       ?>
 
-      <p>Type a school name in the search bar below to find its accountability scores from 2013 to 2016.</p>
+      <h3>Find your school's rating</h3>
+      <p>Type a school or district name into the search bar to see how it was rated by the state from 2013-2016.</p>
       </div>
     </div>
 
@@ -123,7 +124,7 @@
         <div class="col-xs-12 interactive">
             <h1 class="interactive-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
             <div class="interactive-ready">
-                <input type="text" class="form-control input-lg typeahead" placeholder="Find your school's ratings" />
+                <input type="text" class="form-control input-lg typeahead" placeholder="Start typing a name ..." />
                 <h1 class="results-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
                 <div class="results"></div>
             </div>
@@ -178,18 +179,14 @@
               </div>
               <% _.each(["Student Achievement (Index 1)","Student Progress (Index 2)","Closing Performance Gaps (Index 3)","Postsecondary Readiness (Index 4)"],
                     function(title, i) { %>
-              <h3><%= title %></h3>
-              <p class="leadish italic"><%= ["Student performance across all subjects.",
-                "Student performance improvement.",
-                "Academic achievement of economically disadvantaged students and the two lowest-performing racial student groups.",
-                "Measure of a school’s ability to prepare its students for the next level of education, or the workforce."][i] %></p>
+              <p class="leadish italic"><%= title %></p>
               <div class="index-chart">
 
                   <div class="row">
                       <div class="col-xs-10 col-xs-offset-2">
                           <div class="bar-scale-wrapper">
-                              <span class="small muted pull-left">0%</span>
-                              <span class="small muted pull-right">100%</span>
+                              <span class="small muted pull-left">0</span>
+                              <span class="small muted pull-right">100</span>
                               <div class="clearfix"></div>
                               <div class="bar-scale"></div>
                           </div>
