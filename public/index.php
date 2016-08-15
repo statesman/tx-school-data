@@ -127,23 +127,32 @@
       <div class="search-result">
           <h2><%= school.name  %></h2>
           <h3 class="subhed"><small><%= school.dist_name %></small></h3>
+
           <div class="year-labels">
+          <% _.each([2015, 2014, 2013], function(year) {
+            if (school[year].rating === "M") { %>
               <div class="muted-label text-success">
-                  <p class="hed">2016&ensp;<i class="fa fa-check-circle"></i></p>
+                  <p class="hed"><%= year %>&ensp;<i class="fa fa-check-circle"></i></p>
                   <p class="txt">Met standard</p>
               </div>
+            <% } else if (school[year].rating === "I") { %>
               <div class="muted-label text-danger">
-                  <p class="hed">2015&ensp;<i class="fa fa-times-circle"></i></p>
+                  <p class="hed"><%= year %>&ensp;<i class="fa fa-times-circle"></i></p>
                   <p class="txt">Improvement required</p>
               </div>
+            <% } else if (school[year].rating === "A") { %>
               <div class="muted-label text-info">
-                  <p class="hed">2014&ensp;<i class="fa fa-minus-circle"></i></p>
+                  <p class="hed"><%= year %>&ensp;<i class="fa fa-minus-circle"></i></p>
                   <p class="txt">Met alternative standard</p>
               </div>
-              <div class="muted-label text-success">
-                  <p class="hed">2014&ensp;<i class="fa fa-check-circle"></i></p>
-                  <p class="txt">Met standard</p>
+            <% } else if (school[year].rating === "X" || school[year].rating === "Z") { %>
+              <div class="muted-label text-info">
+                  <p class="hed"><%= year %>&ensp;<i class="fa fa-minus-circle"></i></p>
+                  <p class="txt">Not rated</p>
               </div>
+            <% }
+            });
+          %>
           </div>
           <div class="section categories">
               <h3>Accountability ratings</h3>
