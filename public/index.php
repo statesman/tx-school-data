@@ -8,7 +8,10 @@
   $meta = array(
     "title" => "Texas school accountability ratings | Statesman.com",
     "description" => "How did your school do on the 2016 Texas accountability ratings? Find out here.",
-    "thumbnail" => "http://projects.statesman.com/site_path/assets/share.jpg",
+    "thumbnail" => array(
+        "twitter" => "http://projects.statesman.com/news/2016-08-16-tx-school-data/assets/share-twitter.png",
+        "fb" => "http://projects.statesman.com/news/2016-08-16-tx-school-data/assets/share-fb.png"
+    ),
     "shortcut_icon" => "http://media.cmgdigital.com/shared/media/2015-08-28-16-58-55/web/site/www_mystatesman_com/images/favicon.ico",
     "apple_touch_icon" => "http://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_fa2d2d6e73614535b997734c7e7d2287.png",
     "url" => "http://projects.statesman.com/news/2016-08-16-tx-school-data/",
@@ -36,14 +39,14 @@
 
   <meta property="og:title" content="<?php print $meta['title']; ?>"/>
   <meta property="og:description" content="<?php print $meta['description']; ?>"/>
-  <meta property="og:image" content="<?php print $meta['thumbnail']; ?>"/>
+  <meta property="og:image" content="<?php print $meta['thumbnail']['fb']; ?>"/>
   <meta property="og:url" content="<?php print $meta['url']; ?>"/>
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@<?php print $meta['twitter']; ?>" />
   <meta name="twitter:title" content="<?php print $meta['title']; ?>" />
   <meta name="twitter:description" content="<?php print $meta['description']; ?>" />
-  <meta name="twitter:image" content="<?php print $meta['thumbnail']; ?>" />
+  <meta name="twitter:image" content="<?php print $meta['thumbnail']['twitter']; ?>" />
   <meta name="twitter:url" content="<?php print $meta['url']; ?>" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
