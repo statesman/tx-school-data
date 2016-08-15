@@ -124,8 +124,8 @@
 
   <script type="text/html" class="results-template">
       <div class="search-result">
-          <h2><%= name  %></h2>
-          <h3 class="subhed"><small><%= district %></small></h3>
+          <h2><%= school.name  %></h2>
+          <h3 class="subhed"><small><%= school.dist_name %></small></h3>
           <div class="year-labels">
               <div class="muted-label text-success">
                   <p class="hed">2016&ensp;<i class="fa fa-check-circle"></i></p>
@@ -147,7 +147,7 @@
           <div class="section categories">
               <h3>Accountability ratings</h3>
 
-              <p class="leadish italic">Student preparedness (Index 1)</p>
+              <p class="leadish italic">Student Achievement (Index 1)</p>
 
               <div class="index-chart">
 
@@ -217,88 +217,12 @@
           </div>
 
 
-              <p class="leadish italic">Index 2</p>
+              <p class="leadish italic">Student Progress (Index 2)</p>
               CHART
-              <p class="leadish italic">Index 3</p>
+              <p class="leadish italic">Closing Performance Gaps (Index 3)</p>
               CHART
-              <p class="leadish italic">Index 4</p>
+              <p class="leadish italic">Postsecondary Readiness (Index 4)</p>
               CHART
-          </div>
-          <div class="section distinctions">
-              <h3>Distinctions</h3>
-              <p class="help-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <table class="table table-condensed">
-                  <thead>
-                      <tr>
-                          <th></th>
-                          <th class="text-right">2013</th>
-                          <th class="text-right">2014</th>
-                          <th class="text-right">2015</th>
-                          <th class="text-right">2016</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td class="bold">Students</td>
-                          <td class="text-right">8,888</td>
-                          <td class="text-right">8,888</td>
-                          <td class="text-right">8,888</td>
-                          <td class="text-right">8,888</td>
-                      </tr>
-                      <tr>
-                          <td class="bold">Percent disadvantaged</td>
-                          <td class="text-right">24.4%</td>
-                          <td class="text-right">12.4%</td>
-                          <td class="text-right">12.4%</td>
-                          <td class="text-right">12.4%</td>
-                      </tr>
-                      <tr>
-                          <td class="bold">Percent English-language learners</td>
-                          <td class="text-right">24.4%</td>
-                          <td class="text-right">12.4%</td>
-                          <td class="text-right">12.4%</td>
-                          <td class="text-right">12.4%</td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
-          <div class="section demographics">
-              <h3>Demographic data</h3>
-              <p class="help-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <table class="table table-condensed">
-                  <thead>
-                      <tr>
-                          <th></th>
-                          <th class="text-right">2013</th>
-                          <th class="text-right">2014</th>
-                          <th class="text-right">2015</th>
-                          <th class="text-right">2016</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td class="bold">Students</td>
-                          <td class="text-right">8,888</td>
-                          <td class="text-right">8,888</td>
-                          <td class="text-right">8,888</td>
-                          <td class="text-right">8,888</td>
-                      </tr>
-                      <tr>
-                          <td class="bold">Percent disadvantaged</td>
-                          <td class="text-right">24.4%</td>
-                          <td class="text-right">12.4%</td>
-                          <td class="text-right">12.4%</td>
-                          <td class="text-right">12.4%</td>
-                      </tr>
-                      <tr>
-                          <td class="bold">Percent English-language learners</td>
-                          <td class="text-right">24.4%</td>
-                          <td class="text-right">12.4%</td>
-                          <td class="text-right">12.4%</td>
-                          <td class="text-right">12.4%</td>
-                      </tr>
-                  </tbody>
-              </table>
           </div>
       </div>
   </script>

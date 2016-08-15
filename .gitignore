@@ -144,3 +144,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# processed data
+data/stacked_data.csv
+data/stacked_data_with_coordinates.csv
