@@ -111,6 +111,8 @@
       <?php if ($meta['related_story'])
         print "<p class='bold'>Read more: <a href='" . $meta['related_story']['url'] . "' target='_blank'>" . $meta['related_story']['headline'] . " &raquo;</a></p>"
       ?>
+
+      <p>Type a school name in the search bar below to find its accountability scores from 2013 to 2016.</p>
       </div>
     </div>
 
@@ -118,7 +120,7 @@
         <div class="col-xs-12 interactive">
             <h1 class="interactive-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
             <div class="interactive-ready">
-                <input type="text" class="form-control input-lg typeahead" placeholder="Find your school's rating" />
+                <input type="text" class="form-control input-lg typeahead" placeholder="Find your school's ratings" />
                 <h1 class="results-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
                 <div class="results"></div>
             </div>
