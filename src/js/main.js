@@ -65,7 +65,7 @@
         return [
           d.name,
           " - ",
-          d.dist_name].join("");
+          d.district].join("");
       }
     }).bind('typeahead:select', function(ev, suggestion) {
       fetchRecord(suggestion);
