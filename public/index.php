@@ -136,49 +136,44 @@
           <div class="section categories">
               <h3>Accountability ratings</h3>
 
-              <p class="leadish italic">Student Achievement (Index 1)</p>
-
+              <% _.each(["Student Achievement (Index 1)","Student Progress (Index 2)","Closing Performance Gaps (Index 3)","Postsecondary Readiness (Index 4)"],
+                    function(title, i) { %>
+              <p class="leadish italic"><%= title %></p>
               <div class="index-chart">
 
-              <div class="row">
-                  <div class="col-xs-11 col-xs-offset-1">
-                      <div class="bar-scale-wrapper">
-                          <span class="small muted pull-left">0%</span>
-                          <span class="small muted pull-right">100%</span>
-                          <div class="clearfix"></div>
-                          <div class="bar-scale"></div>
+                  <div class="row">
+                      <div class="col-xs-11 col-xs-offset-1">
+                          <div class="bar-scale-wrapper">
+                              <span class="small muted pull-left">0%</span>
+                              <span class="small muted pull-right">100%</span>
+                              <div class="clearfix"></div>
+                              <div class="bar-scale"></div>
+                          </div>
                       </div>
                   </div>
-              </div>
 
-              <div class="clearfix"></div>
+                  <div class="clearfix"></div>
 
-              <% _.each([2015, 2014, 2013], function(year) {%>
-              <div class="row bar-group">
-                  <div class="col-xs-1 bar-year-label">
-                      <%= year %>
-                  </div>
-                  <div class="col-xs-11">
-                      <% if (school[year].i1_score === null) { %>
-                      <div class="bar italic" style="margin-top:2px;">No data this year</div>
-                      <% } else { %>
-                      <div class="bar">
-                          <div class="bar-value" style="width: <%= school[year].i1_score %>%;"></div>
-                          <div class="bar-goal" style="width: <%= school[year].i1_target %>%;"></div>
+                  <% _.each([2015, 2014, 2013], function(year) { %>
+                  <div class="row bar-group">
+                      <div class="col-xs-1 bar-year-label">
+                          <%= year %>
                       </div>
-                      <% } %>
+                      <div class="col-xs-11">
+                          <% var score_var = "i" + (i + 1) + "_score"; if (school[year][score_var] === null) { %>
+                          <div class="bar italic" style="margin-top:2px;">No data this year</div>
+                          <% } else { var target_var = "i" + (i + 1) + "_target" %>
+                          <div class="bar">
+                              <div class="bar-value" style="width: <%= school[year][score_var] %>%;"></div>
+                              <div class="bar-goal" style="width: <%= school[year][target_var] %>%;"></div>
+                          </div>
+                          <% } %>
+                      </div>
                   </div>
+                  <% }); %>
               </div>
               <% }); %>
-          </div>
 
-
-              <p class="leadish italic">Student Progress (Index 2)</p>
-              CHART
-              <p class="leadish italic">Closing Performance Gaps (Index 3)</p>
-              CHART
-              <p class="leadish italic">Postsecondary Readiness (Index 4)</p>
-              CHART
           </div>
       </div>
   </script>
