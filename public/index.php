@@ -100,7 +100,7 @@
 
       <p>Hemphill Elementary in the Hays school district and Manor Excel Academy in the Manor district received &ldquo;Improvement Required&rdquo; ratings.</p>
 
-      <p>In the yearly report the TEA measures state elementary, middle and high schools based on four performance index categories:</p>
+      <p>The TEA annually measures state elementary, middle and high schools based on four performance index categories:</p>
 
       <ol>
         <li><strong>Student achievement:</strong> Student performance across all subjects</li>
