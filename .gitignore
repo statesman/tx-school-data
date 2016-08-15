@@ -146,5 +146,5 @@ ENV/
 .ropeproject
 
 # processed data
-data/stacked_data.csv
-data/stacked_data_with_coordinates.csv
+data/stacked_data.txt
+data/2016-processed-data.txt
