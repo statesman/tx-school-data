@@ -214,7 +214,7 @@
                               </div>
                             <% if (scoreYear.score !== null) { %>
                               <div class="col-sm-4">
-                                  <p class="small italic chart-year-score"><span style="color: #aaa;">Score: <%= scoreYear.score %></p>
+                                  <p class="small italic chart-year-score"><span style="color: #aaa;">Score:</span> <%= scoreYear.score %></p>
                               </div>
                               <div class="col-sm-4">
                                   <p class="small italic chart-year-target" style="color: #395271;">Target: <%= scoreYear.target %></p>
