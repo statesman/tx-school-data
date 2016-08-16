@@ -47,6 +47,7 @@ div.section {
   }
   p.leadish {
     font-size: 18px;
+    margin-top: -8px;
   }
 }
 
@@ -56,12 +57,12 @@ div.section {
 
 div.muted-label {
   background: @body-bg;
-  padding: 5px;
   display: inline-block;
   margin: 5px;
+  padding: 10px;
+  text-align:center;
   > p.hed {
     font-size: 18px;
-    text-align:center;
     .bold;
     margin:0;
   }
@@ -73,59 +74,6 @@ div.muted-label {
 .index-chart {
   margin-bottom: 40px;
   font-size: 16px;
-}
-
-.bar-group {
-  margin-bottom: 10px;
-}
-
-.bar-scale {
-  border-bottom: 1px solid #ccc;
-}
-
-.bar-scale-wrapper {
-  padding-left: 15px;
-  margin-bottom: 15px;
-}
-
-.bar {
-  height: 16px;
-  padding-left: 15px;
-  margin-top: 4px;
-  font-size: 14px;
-}
-
-.bar-value {
-  height: 100%;
-  background-color: lighten(@gray-light, 5%);
-}
-
-.bar-goal {
-  height: 26px;
-  background-color: transparent;
-  margin-top: -20px;
-  border-right: 4px solid #395271;
-}
-
-.legend-text {
-  padding-left: 0px;
-}
-
-.legend-row {
-  margin: 10px 0;
-}
-
-.bar-value-legend {
-  height: 20px;
-  margin-bottom: 5px;
-  background-color: lighten(@gray-light, 5%);
-}
-
-.bar-goal-legend {
-  height: 20px;
-  background-color: transparent;
-  border-left: 4px solid #395271;
-  margin-bottom: 5px;
 }
 
 .rating-section {
