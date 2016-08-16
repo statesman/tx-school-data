@@ -97,13 +97,7 @@
       <br>
       Published <?php print $meta['publish_date']; ?></p>
 
-      <p>Nearly 94 percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency.</p>
-
-      <p>In Central Texas, all of the schools in Bastrop, Del Valle, Dripping Springs, Eanes, Elgin, Georgetown, Hutto, Lake Travis, Leander, Pflugerville, Round Rock and San Marcos met the standards, which measure student performance in four categories.</p>
-
-      <p>Hemphill Elementary in the Hays school district and Manor Excel Academy in the Manor district received &ldquo;Improvement Required&rdquo; ratings.</p>
-
-      <p>The TEA annually measures state elementary, middle and high schools based on four performance index categories:</p>
+      <p>Nearly 94 percent of Texas schools met state proficiency goals in 2016, according to new <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released Monday by the The Texas Education Agency. The TEA annually measures state elementary, middle and high schools based on four performance index categories:</p>
 
       <ol>
         <li><strong>Student achievement:</strong> Student performance across all subjects</li>

@@ -53,11 +53,12 @@
     $TYPEAHEAD.typeahead({
       hint: true,
       highlight: true,
-      minLength: 3,
+      minLength: 3
     },
     {
       name: 'schools',
       source: substringMatcher(data),
+      limit: 100,
       display: function(d) {
         return [
           d.name,
