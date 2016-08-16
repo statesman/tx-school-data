@@ -204,8 +204,11 @@
 
                   <% _.each(school[i + 1].scores, function(scoreYear) { %>
                   <div class="row bar-group">
-                      <div class="col-xs-2 bar-year-label">
-                          <%= scoreYear.year %>
+                      <div class="col-xs-2 bar-year-label<% if (scoreYear.score !== null && scoreYear.score < scoreYear.target) { %> text-danger<% } else if (scoreYear.score !== null && scoreYear.score >= scoreYear.target) { %> text-success<% }; %>">
+                          <p><%= scoreYear.year %><% if (scoreYear.score !== null && scoreYear.score < scoreYear.target) { %>&ensp;<i class="fa fa-times-circle"></i><% } else if (scoreYear.score !== null && scoreYear.score >= scoreYear.target) { %> &ensp;<i class="fa fa-check-circle"></i><% } else { %>&ensp;<i class="fa fa-minus-circle"></i><% }; %></p>
+                          <% if (scoreYear.score !== null) { %>
+                          <p class="small italic chart-rating">Score: <%= scoreYear.score %><br> Target: <%= scoreYear.target %></p>
+                          <% }; %>
                       </div>
                       <div class="col-xs-10">
                           <% if (scoreYear.score === null) { %>
