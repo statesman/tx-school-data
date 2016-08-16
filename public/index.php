@@ -168,6 +168,8 @@
           %>
           </div>
           <div class="section categories">
+
+              <!--
               <div class="legend-row row">
                 <div class="col-sm-6">
                   <div class="legend-text col-xs-12"><p><strong>Legend:</strong></p></div>
@@ -178,6 +180,7 @@
                   <div class="col-xs-12"></div>
                 </div>
               </div>
+          -->
 
               <% _.each(["Student Achievement (Index 1)","Student Progress (Index 2)","Closing Performance Gaps (Index 3)","Postsecondary Readiness (Index 4)"],
                       function(title, i) { %>
@@ -190,7 +193,7 @@
               <div class="index-chart">
 
                   <div class="row">
-                      <div class="col-xs-10 col-xs-offset-2">
+                      <div class="col-xs-8 col-xs-offset-4">
                           <div class="bar-scale-wrapper">
                               <span class="small muted pull-left">0</span>
                               <span class="small muted pull-right">100</span>
@@ -204,13 +207,24 @@
 
                   <% _.each(school[i + 1].scores, function(scoreYear) { %>
                   <div class="row bar-group">
-                      <div class="col-xs-2 bar-year-label<% if (scoreYear.score !== null && scoreYear.score < scoreYear.target) { %> text-danger<% } else if (scoreYear.score !== null && scoreYear.score >= scoreYear.target) { %> text-success<% }; %>">
-                          <p><%= scoreYear.year %><% if (scoreYear.score !== null && scoreYear.score < scoreYear.target) { %>&ensp;<i class="fa fa-times-circle"></i><% } else if (scoreYear.score !== null && scoreYear.score >= scoreYear.target) { %> &ensp;<i class="fa fa-check-circle"></i><% } else { %>&ensp;<i class="fa fa-minus-circle"></i><% }; %></p>
-                          <% if (scoreYear.score !== null) { %>
-                          <p class="small italic chart-rating">Score: <%= scoreYear.score %><br> Target: <%= scoreYear.target %></p>
-                          <% }; %>
+                      <div class="col-xs-4 bar-year-label">
+                          <div class="row">
+                              <div class="col-sm-4">
+                                  <p class="chart-year-hed bold<% if (scoreYear.score !== null && scoreYear.score < scoreYear.target) { %> text-danger<% } else if (scoreYear.score !== null && scoreYear.score >= scoreYear.target) { %> text-success<% }; %>"><%= scoreYear.year %><% if (scoreYear.score !== null && scoreYear.score < scoreYear.target) { %> <i class="fa fa-times-circle"></i><% } else if (scoreYear.score !== null && scoreYear.score >= scoreYear.target) { %> <i class="fa fa-check-circle"></i><% } else { %> <i class="fa fa-minus-circle"></i><% }; %></p>
+                              </div>
+                            <% if (scoreYear.score !== null) { %>
+                              <div class="col-sm-4">
+                                  <p class="small italic chart-year-score"><span style="color: #aaa;">Score: <%= scoreYear.score %></p>
+                              </div>
+                              <div class="col-sm-4">
+                                  <p class="small italic chart-year-target" style="color: #395271;">Target: <%= scoreYear.target %></p>
+                              </div>
+                            <% }; %>
+                          </div>
+
+
                       </div>
-                      <div class="col-xs-10">
+                      <div class="col-xs-8">
                           <% if (scoreYear.score === null) { %>
                           <div class="bar italic" style="margin-top:2px;">No data this year</div>
                           <% } else { %>
