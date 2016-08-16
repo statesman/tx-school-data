@@ -142,18 +142,22 @@ div.muted-label {
   margin-bottom: 0;
 }
 
+.chart-span-wrapper {
+  @media (max-width: @screen-sm) {
+    margin-top: 5px;
+  }
+}
+
 .chart-year-score, {
   margin-top: 0;
-  color: #aaa;
-  @media (max-width: @screen-sm) {
-    margin-top: -2px;
-  }
+  background: #ccc;
+  color: black;
+  padding: 5px;
 }
 
 .chart-year-target {
   margin-top: 0;
-  color: #395271;
-  @media (max-width: @screen-sm) {
-    margin-top: -11px;
-  }
+  background: #395271;
+  color: white;
+  padding: 5px;
 }
