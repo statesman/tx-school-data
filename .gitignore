@@ -146,5 +146,5 @@ ENV/
 .ropeproject
 
 # processed data
+public/assets/data/*
 data/stacked_data.txt
-data/2016-processed-data.txt
