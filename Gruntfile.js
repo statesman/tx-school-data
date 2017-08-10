@@ -1,23 +1,23 @@
 var fs = require("fs");
 var request = require("request");
+var config = require("./project.config");
 
 module.exports = function(grunt) {
   'use strict';
 
-  var config = {
-    // the site section to publish to
-    site_dir: "news",
+  /* project-specific config */
 
-    //the endpoint to publish to
-    site_path: "2016-08-16-tx-school-data",
+  // URL endpoint
+  var sitePath = config.sitePath;
 
-    // name of your notifier slack bot
-    slack_username: "School Data Bot",
+  // stage URL for humans
+  var stage_url = ['https://s3-us-west-2.amazonaws.com/dev.apps.statesman.com', sitePath, 'index.html'].join("/");
 
-    // slack emoji
-    slack_icon_emoji: ":school:"
-  };
+  // prod URL for humans
+  var prod_url = ['http://apps.statesman.com', sitePath].join("/");
 
+
+  /* project configurations */
   grunt.initConfig({
 
     // Copy FontAwesome files to the fonts/ directory
@@ -100,33 +100,6 @@ module.exports = function(grunt) {
         files: ['src/less/**/*.less'],
         tasks: ['less']
       }
-    },
-
-    ftpush: {
-      stage: {
-        auth: {
-          host: 'host.coxmediagroup.com',
-          port: 21,
-          authKey: 'cmg'
-        },
-        src: 'public',
-        dest: ['/stage_aas/projects', config.site_dir, config.site_path].join("/"),
-        exclusions: ['dist/tmp', 'Thumbs.db', '.DS_Store'],
-        simple: false,
-        useList: false
-      },
-      prod: {
-        auth: {
-          host: 'host.coxmediagroup.com',
-          port: 21,
-          authKey: 'cmg'
-        },
-        src: 'public',
-        dest: ['/prod_aas/projects', config.site_dir, config.site_path].join("/"),
-        exclusions: ['dist/tmp', 'Thumbs.db', '.DS_Store'],
-        simple: false,
-        useList: false
-      }
     }
 
   });
@@ -142,33 +115,32 @@ module.exports = function(grunt) {
       var done = this.async();
 
       // prod or stage?
-      var ftp_path = where_dis_go === "prod" ? ["http://projects.statesman.com", config.site_dir, config.site_path].join("/") : ["http://stage.host.coxmediagroup.com/aas/projects", config.site_dir, config.site_path].join("/");
+        var s3Path = where_dis_go === "prod" ? prod_url : stage_url;
 
-      var payload = {
-        "text": "hello yes i am pushing code to *" + config.site_path + "*: " + ftp_path,
-        "channel": "#bakery",
-        "username": config.slack_username,
-        "icon_emoji": config.slack_icon_emoji
-      };
+        var payload = {
+            "text": "hello yes i am pushing code to *" + sitePath +  "*: " + s3Path,
+            "channel": "#bakery",
+            "username": "SchoolDataBot",
+            "icon_emoji": ":school:"
+        };
 
-      // send the request
-      request.post({
-          url: fs.readFileSync('.slack', {
-            encoding: 'utf8'
-          }),
-          json: payload
-        },
-        function callback(err, res, body) {
-          done();
-          if (body !== "ok") {
-            return console.error('upload failed:', body);
-          }
-          console.log('we slacked it up just fine people, good work');
+        // send the request
+        request.post(
+            {
+                url: fs.readFileSync('.slack', {encoding: 'utf8'}),
+                json: payload
+            },
+            function callback(err, res, body) {
+                done();
+                if (body !== "ok") {
+                    return console.error('upload failed:', body);
+                }
+            console.log('we slacked it up just fine people, good work');
         });
     }
     // if no .slack file, log it
     else {
-      grunt.log.warn('No .slack file exists. Skipping Slack notification.');
+        grunt.log.warn('No .slack file exists. Skipping Slack notification.');
     }
   });
 
@@ -180,9 +152,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-ftpush');
   grunt.loadNpmTasks('grunt-bootlint');
+  grunt.loadTasks('tasks/');
+
 
   grunt.registerTask('default', ['copy', 'less', 'jshint', 'bootlint', 'uglify']);
-  grunt.registerTask('stage', ['default', 'ftpush:stage', 'slack:stage']);
-  grunt.registerTask('prod', ['default', 'ftpush:prod', 'slack:prod']);
+  grunt.registerTask('stage', ['default', 'deployS3:stage', 'slack:stage']);
+  grunt.registerTask('prod', ['default', 'deployS3:prod', 'slack:prod']);
 
 };
