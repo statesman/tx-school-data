@@ -14,6 +14,9 @@ $ pip install -r requirements.txt
 $ jupyter notebook
 ```
 
+### Christian note on env
+I was able to run this in Conda using my `data` environment
+
 ## Hack on the interactive
 ```shell
 $ cd tx-school-data
