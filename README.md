@@ -26,6 +26,11 @@ $ grunt
 
 Run `grunt watch` to relint/transpile/uglify your css and js files on change.
 
+## Deployment changes
+This uses the grunt-based [node-s3-client](https://github.com/andrewrk/node-s3-client) to publish. It's still under development and is not currently ideal.
+- store AWS credentials as the environmental variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+- the `public/assets/data` folder will need to be removed from the project before running either `grunt stage` or `grunt prod`. That directory will need to be uploaded using the AWS web client, which takes some time. There is [an issue](#4) with some ideas of handling this a different way, but I'm unsure how to exclude the `public/assets/data` folder from the initial upload.
+
 ## 2017 preparation notes
 In the `update2017` branch, Christian has:
 - Updated the script to so add the 2017 data, **IF** it is formatted exactly like 2016. I was able to replicate what Cody did with 2016:
