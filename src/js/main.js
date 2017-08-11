@@ -3,8 +3,15 @@
 
   /* top-level vars */
 
-   var data_path = 'assets/data/';
-   var search_index = 'assets/data/search_index.json';
+  // pym fires redraw function resize
+  var pymChild = new pym.Child();
+
+  function sendHeight() {
+    pymChild.sendHeight();
+  }
+
+  var data_path = 'assets/data/';
+  var search_index = 'assets/data/search_index.json';
 
   // cache DOM refs
   var $RESULTS = $(".results");
@@ -83,8 +90,6 @@
 
   });
 
-  // pym fires redraw function resize
-  pymChild = new pym.Child();
 
 
 }(jQuery, _));
