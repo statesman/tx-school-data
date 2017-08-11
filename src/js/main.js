@@ -82,11 +82,14 @@
       $.getJSON(data_path + q.id + '.json', function(matchingRecord) {
         $RESULTS.html(resultsTemplate(matchingRecord));
         $RESULTS_WAIT.hide();
+        pymChild.sendHeight();
       });
      }
 
     $INTERACTIVE_WAIT.hide();
     $INTERACTIVE_READY.show();
+    // send pym after ready
+    pymChild.sendHeight();
 
   });
 
