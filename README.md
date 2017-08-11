@@ -45,3 +45,7 @@ This uses the grunt-based [node-s3-client](https://github.com/andrewrk/node-s3-c
 - the `public/assets/data` folder will need to be removed from the project before running either `grunt stage` or `grunt prod`. That directory will need to be uploaded using the AWS web client, which will take some time some time. There is [an issue](#4) with some ideas of handling this a different way, but I'm unsure how to exclude the `public/assets/data` folder from the initial upload.
 - This is reconfigured to embed in Methode. There is a file `src/methode_embed.html` which has example code for the Methode flatpage.
 
+## staging examples
+- Methode staging flatpage https://staging-swing.coxmediagroup.com/swing/app/#editor/41$1.0.1532295620
+- published staging page: https://staging.mystatesman.com/news/local-education/school-pym-test/1YmVJKXxZamhCwKdgoS6jO/
+
