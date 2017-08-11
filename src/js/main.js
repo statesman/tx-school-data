@@ -50,6 +50,7 @@
       };
     };
 
+    // more typeahead
     $TYPEAHEAD.typeahead({
       hint: true,
       highlight: true,
@@ -81,5 +82,9 @@
     $INTERACTIVE_READY.show();
 
   });
+
+  // pym fires redraw function resize
+  pymChild = new pym.Child();
+
 
 }(jQuery, _));
