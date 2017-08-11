@@ -1,7 +1,8 @@
 # Texas school accountability data
+
 This repo includes:
 * Texas school accountability rating data for 2013-2016. Soon to update with 2017.
-* A [Jupyter notebook](2016-texas-school-accountability-data.ipynb) with scripts to transform and analyze this data.
+* A [Jupyter notebook](processing/2016-texas-school-accountability-data.ipynb) with scripts to transform and analyze this data.
 * A web page based on our [single-page project template](https://github.com/statesman/single-page-project) to present the data.
 
 Clone this repo to run/edit the notebook or to hack on the interactive.
@@ -16,9 +17,11 @@ In the `update2017` branch, Christian has:
     + Delete any footer rows
     + SaveAs as csv
 - It's possible some changes will need to be made to the 2017 processing block.
+- The 2006 processing bit is saved out `processing/2016-process-saved.py`, though it should not be needed anymore.
+- I (Christian) don't know how `processing/col_index.py` was used.
 
 ```shell
-$ cd tx-school-data
+$ cd tx-school-data/processing
 $ mkvirtualenv school-data
 $ pip install -r requirements.txt
 $ jupyter notebook
