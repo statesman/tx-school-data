@@ -39,10 +39,11 @@ $ grunt
 
 Run `grunt watch` to relint/transpile/uglify your css and js files on change.
 
-## Deployment changes
-This uses the grunt-based [node-s3-client](https://github.com/andrewrk/node-s3-client) to publish. It is not perfect. See below.
+## Deployment
+This uses [s3-parallel-put](https://github.com/mishudark/s3-parallel-put) to upload json files and [node-s3-client](https://github.com/andrewrk/node-s3-client) in a grunt task to publish the other HTML assets.
 - store AWS credentials as the environmental variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
-- the `public/assets/data` folder will need to be removed from the project before running either `grunt stage` or `grunt prod`. That directory will need to be uploaded using the AWS web client, which will take some time some time. There is [an issue](#4) with some ideas of handling this a different way, but I'm unsure how to exclude the `public/assets/data` folder from the initial upload.
+- `grunt stage` or `grunt prod` publish the `public/` directory WITHOUT data
+-  `bash tasks/push_data.sh stage` or `bash tasks/push_data.sh prod` upload the json files
 - This is reconfigured to embed in Methode. There is a file `src/methode_embed.html` which has example code for the Methode flatpage.
 
 ## staging examples
