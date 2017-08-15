@@ -6,6 +6,8 @@
   // pym fires redraw function resize
   var pymChild = new pym.Child();
 
+  var hasSearched = false;
+
   function sendHeight() {
     pymChild.sendHeight();
   }
@@ -75,6 +77,16 @@
       }
     }).bind('typeahead:select', function(ev, suggestion) {
       fetchRecord(suggestion);
+
+      if (!hasSearched) {
+        hasSearched = true;
+        ga('send', {
+          hitType: 'event',
+          eventCategory: '20170815-school-ratings-flat-page',
+          eventAction: 'searched',
+          eventLabel: ''
+        });
+      }
     });
 
     function fetchRecord(q) {
