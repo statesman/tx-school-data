@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Interactive: Texas school accountability ratings | Austin American-Statesman</title>
+  <link rel="shortcut icon" href="https://media.cmgdigital.com/shared/media/2015-11-16-11-32-05/web/site/www_mystatesman_com/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_fa2d2d6e73614535b997734c7e7d2287.png" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <link rel="stylesheet" href="dist/style.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Lusitana:400,700|Merriweather:400,300,300italic,400italic,700,700italic,900,900italic|Merriweather+Sans:400,300,300italic,400italic,700italic,700,800,800italic' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <article class="container">
+
+    <div class="row" id="main-interactive">
+      <div class="col-xs-12">
+      <h1 id="pagetitle">Texas school accountability scores, 2013-2017</h1>
+      <p class="author">By <a href="https://twitter.com/aasinteractive">Statesman Interactives</a>, updated August 15, 2017</p>
+
+      <p>Nearly 95 percent of Texas schools met state proficiency goals in 2017, according to <a href="https://rptsvr1.tea.texas.gov/perfreport/account/index.html" target="_blank">accountability data</a> released by the The Texas Education Agency. The TEA annually measures state elementary, middle and high schools based on four performance index categories:</p>
+
+      <ol>
+        <li><strong>Student achievement:</strong> Student performance across all subjects</li>
+        <li><strong>Student progress:</strong> Student performance improvement</li>
+        <li><strong>Closing performance gaps:</strong> Academic achievement of economically disadvantaged students and the two lowest-performing racial student groups</li>
+        <li><strong>Postsecondary readiness:</strong> Measure of a school’s ability to prepare its students for the next level of education, or the workforce.</li>
+      </ol>
+
+      <p class='bold'>Read more: <a href='https://www.mystatesman.com/news/local-education/just-these-central-texas-schools-fail-state-academic-standards/ihQgY7rMIpbrWhNrsJOPvI/' target='_blank'>These Central Texas schools fail state academic standards</a></p>
+
+      <h3>Find your school's rating</h3>
+      <p>Type a school or district name into the search bar to see how it was rated by the state from 2013-2017.</p>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 interactive">
+            <h1 class="interactive-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
+            <div class="interactive-ready">
+                <input type="text" class="form-control input-lg typeahead" placeholder="Ex: AUSTIN HIGH SCHOOL" />
+                <h1 class="results-wait"><i class="fa fa-circle-o-notch fa-spin"></i></h1>
+                <div class="results"></div>
+            </div>
+        </div>
+    </div>
+
+      <div class="row">
+        <div class="col-xs-12 search-buffer"></div>
+      </div>
+
+  </article>
+
+  <script type="text/html" class="results-template">
+      <div class="search-result">
+          <h2><%= school.name  %></h2>
+          <h3 class="subhed"><small><%= school.dist_name %></small></h3>
+
+          <div class="year-labels">
+          <% _.each(school.ratings, function(ratingYear) {
+            if (ratingYear.rating === "M") { %>
+              <div class="muted-label text-success">
+                  <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-check-circle"></i></p>
+                  <p class="txt">Met standard</p>
+              </div>
+            <% } else if (ratingYear.rating === "I") { %>
+              <div class="muted-label text-danger">
+                  <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-times-circle"></i></p>
+                  <p class="txt">Improvement required</p>
+              </div>
+            <% } else if (ratingYear.rating === "A") { %>
+              <div class="muted-label text-info">
+                  <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-minus-circle"></i></p>
+                  <p class="txt">Met alternative standard</p>
+              </div>
+            <% } else if (ratingYear.rating === "X" || ratingYear.rating === "Z" || ratingYear.rating === null) { %>
+              <div class="muted-label">
+                  <p class="hed"><%= ratingYear.year %>&ensp;<i class="fa fa-minus-circle"></i></p>
+                  <p class="txt">Not rated</p>
+              </div>
+            <% }
+            });
+          %>
+          </div>
+          <div class="section categories">
+
+              <% _.each(["Student Achievement (Index 1)","Student Progress (Index 2)","Closing Performance Gaps (Index 3)","Postsecondary Readiness (Index 4)"],
+                      function(title, i) { %>
+            <div class="rating-section">
+               <h3><%= title %></h3>
+               <p class="leadish italic"><%= ["Student performance across all subjects.",
+                "Student performance improvement.",
+                "Academic achievement of economically disadvantaged students and the two lowest-performing racial student groups.",
+                "Measure of a school’s ability to prepare its students for the next level of education, or the workforce."][i] %></p>
+              <div class="index-chart">
+
+                  <div class="row">
+                      <div class="col-xs-8 col-xs-offset-4">
+                          <div class="bar-scale-wrapper">
+                              <span class="small muted pull-left">0</span>
+                              <span class="small muted pull-right">100</span>
+                              <div class="clearfix"></div>
+                              <div class="bar-scale"></div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="clearfix"></div>
+
+                  <% _.each(school[i + 1].scores, function(scoreYear) { %>
+                  <div class="row bar-group">
+                      <div class="col-xs-4 bar-year-label">
+                          <div class="row">
+                              <div class="col-sm-4">
+                                  <p class="chart-year-hed bold<% if (scoreYear.score !== null && scoreYear.score < scoreYear.target) { %> text-danger<% } else if (scoreYear.score !== null && scoreYear.score >= scoreYear.target) { %> text-success<% }; %>"><%= scoreYear.year %><% if (scoreYear.score !== null && scoreYear.score < scoreYear.target) { %> <i class="fa fa-times-circle"></i><% } else if (scoreYear.score !== null && scoreYear.score >= scoreYear.target) { %> <i class="fa fa-check-circle"></i><% } else { %> <i class="fa fa-minus-circle"></i><% }; %></p>
+                              </div>
+                            <% if (scoreYear.score !== null) { %>
+                              <div class="col-sm-4">
+                                  <p class="small chart-span-wrapper">
+                                      <span class="chart-year-score">
+                                          Score: <%= scoreYear.score %>
+                                      </span>
+                                  </p>
+                              </div>
+                              <div class="col-sm-4">
+                                  <p class="small chart-span-wrapper">
+                                      <span class="chart-year-target">Target: <%= scoreYear.target %></span>
+                                  </p>
+                              </div>
+                            <% }; %>
+                          </div>
+
+
+                      </div>
+                      <div class="col-xs-8">
+                          <% if (scoreYear.score === null) { %>
+                          <div class="bar italic" style="margin-top:2px;">No data this year</div>
+                          <% } else { %>
+                          <div class="bar">
+                              <div class="bar-value" style="width: <%= scoreYear.score %>%;"></div>
+                              <div class="bar-goal" style="width: <%= scoreYear.target %>%;"></div>
+                          </div>
+                          <% } %>
+                      </div>
+                  </div>
+                  <% }); %>
+              </div>
+              <% }); %>
+          </div>
+          </div>
+      </div>
+  </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-66319610-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <script src="dist/scripts.js"></script>
+
+</body>
+</html>

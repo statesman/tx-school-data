@@ -52,7 +52,7 @@ Temporary Items
 
 # Build components that don't need to be saved
 dist
-public/fonts/index.html
+public/fonts/*
 
 
 # Byte-compiled / optimized / DLL files
@@ -146,5 +146,5 @@ ENV/
 .ropeproject
 
 # processed data
+public/assets/data*
 data/stacked_data.txt
-data/2016-processed-data.txt

@@ -3,8 +3,17 @@
 
   /* top-level vars */
 
-   var data_path = 'assets/data/';
-   var search_index = 'assets/data/search_index.json';
+  // pym fires redraw function resize
+  var pymChild = new pym.Child();
+
+  var hasSearched = false;
+
+  function sendHeight() {
+    pymChild.sendHeight();
+  }
+
+  var data_path = 'assets/data/';
+  var search_index = 'assets/data/search_index.json';
 
   // cache DOM refs
   var $RESULTS = $(".results");
@@ -50,6 +59,7 @@
       };
     };
 
+    // more typeahead
     $TYPEAHEAD.typeahead({
       hint: true,
       highlight: true,
@@ -67,6 +77,16 @@
       }
     }).bind('typeahead:select', function(ev, suggestion) {
       fetchRecord(suggestion);
+
+      if (!hasSearched) {
+        hasSearched = true;
+        ga('send', {
+          hitType: 'event',
+          eventCategory: '20170815-school-ratings-flat-page',
+          eventAction: 'searched',
+          eventLabel: ''
+        });
+      }
     });
 
     function fetchRecord(q) {
@@ -74,12 +94,17 @@
       $.getJSON(data_path + q.id + '.json', function(matchingRecord) {
         $RESULTS.html(resultsTemplate(matchingRecord));
         $RESULTS_WAIT.hide();
+        pymChild.sendHeight();
       });
      }
 
     $INTERACTIVE_WAIT.hide();
     $INTERACTIVE_READY.show();
+    // send pym after ready
+    pymChild.sendHeight();
 
   });
+
+
 
 }(jQuery, _));
